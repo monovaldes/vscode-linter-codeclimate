@@ -7,6 +7,11 @@
     "engines": {
         "vscode": "^1.18.0"
     },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/monovaldes/vscode-linter-codeclimate.git"
+    },
+    "icon": "images/lccLogo.png",
     "categories": [
         "Other"
     ],
