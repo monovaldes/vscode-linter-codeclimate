@@ -45,7 +45,17 @@
           "aliases": ["PHP", "php"],
           "extensions": [".php"]
         }
-      ]
+      ],
+      "configuration": {
+        "type": "object",
+        "title": "Codeclimate Linter Config",
+        "properties": {
+          "linter_codeclimate.enabled": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      }
     },
     "scripts": {
         "vscode:prepublish": "npm run compile",

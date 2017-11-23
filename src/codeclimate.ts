@@ -29,6 +29,10 @@ export default class CodeClimateLintingProvider{
   }
   
   private doCClint() {
+    const conf = vscode.workspace.getConfiguration();
+    if (!('linter_codeclimate' in conf && conf.linter_codeclimate.enabled)) {
+      return;
+    }
     const textDocument = vscode.window.activeTextEditor.document;
     let decoded = ''
     let diagnostics: vscode.Diagnostic[] = [];
@@ -36,7 +40,7 @@ export default class CodeClimateLintingProvider{
     const exec_str = `codeclimate analyze -f json ${exec_path}`
     let out = ''
     try {
-      cp.execSync(exec_str, {cwd: vscode.workspace.rootPath}).toString();
+      out = cp.execSync(exec_str, {cwd: vscode.workspace.rootPath}).toString();
     } catch (error) {
       console.log(`Codeclimate Extension Execution Failed:\n${error}`)
     }
