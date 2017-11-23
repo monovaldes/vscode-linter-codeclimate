@@ -2,14 +2,14 @@
     "name": "linter-codeclimate",
     "displayName": "linter-codeclimate",
     "description": "Linter Plugin for CodeClimate CLI",
-    "version": "0.0.3",
+    "version": "0.0.5",
     "publisher": "monovaldes",
     "engines": {
         "vscode": "^1.18.0"
     },
     "repository": {
-      "type": "git",
-      "url": "https://github.com/monovaldes/vscode-linter-codeclimate.git"
+        "type": "git",
+        "url": "https://github.com/monovaldes/vscode-linter-codeclimate.git"
     },
     "icon": "images/lccLogo.png",
     "categories": [
