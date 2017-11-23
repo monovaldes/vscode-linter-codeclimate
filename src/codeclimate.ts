@@ -47,14 +47,20 @@ export default class CodeClimateLintingProvider{
       try {
         if ('severity' in item) {
           let severity = item.severity.toLowerCase() === "minor" ? vscode.DiagnosticSeverity.Warning : vscode.DiagnosticSeverity.Error;
-          let message = '[Codeclimate - ' + item.categories.toString() + '] ' + item.description;
+          let message = `[codeclimate/${item.engine_name} - ${item.categories.toString()}] ${item.description}`;
           if (item.check_name === "similar-code") {
             message += '\nFiles:\n';
             item.other_locations.forEach( it => {
               message += ` ${it.path} [${it.lines.begin}-${it.lines.end}]\n`
             })
           }
-          let range = new vscode.Range(item.location.lines.begin - 1, 0, item.location.lines.begin - 1, 80);
+          const loc = item.location
+          let range = null;
+          if ('positions' in loc) {
+            range = new vscode.Range(item.location.positions.begin.line - 1, item.location.positions.begin.column -1, item.location.positions.begin.line - 1, 80);
+          } else if ('lines' in loc) {
+            range = new vscode.Range(item.location.lines.begin - 1, 0, item.location.lines.begin - 1, 80);
+          }
           let diagnostic = new vscode.Diagnostic(range, message, severity);
           diagnostics.push(diagnostic);
         }
