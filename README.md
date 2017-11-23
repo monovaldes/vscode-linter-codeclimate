@@ -13,10 +13,8 @@ This extension is disabled by default.
 
 To enable it do so in workspace settings:
 {
-  ...
-  linter-codeclimate: {
-    enabled: true
-  }
+  (...)
+  "linter_codeclimate.enabled": true
 }
 
 ## Release Notes

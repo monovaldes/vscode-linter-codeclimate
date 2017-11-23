@@ -25,15 +25,14 @@ export default class CodeClimateLintingProvider{
 			this.diagnosticCollection.delete(textDocument.uri);
 		}, null, subscriptions);
     vscode.workspace.onDidSaveTextDocument(this.doCClint, this);
-    vscode.workspace.onDidCloseTextDocument(this.dispose);
+    vscode.workspace.textDocuments.forEach(this.doCClint, this);
   }
-  
+
   private doCClint() {
     const conf = vscode.workspace.getConfiguration();
-    if (!('linter_codeclimate' in conf && conf.linter_codeclimate.enabled)) {
-      return;
-    }
+    if (!('linter_codeclimate' in conf && conf.linter_codeclimate.enabled) || vscode.window.activeTextEditor === null) { return; }
     const textDocument = vscode.window.activeTextEditor.document;
+
     let decoded = ''
     let diagnostics: vscode.Diagnostic[] = [];
     const exec_path = path.relative(vscode.workspace.rootPath, textDocument.fileName);

@@ -2,7 +2,7 @@
     "name": "linter-codeclimate",
     "displayName": "linter-codeclimate",
     "description": "Linter Plugin for CodeClimate CLI",
-    "version": "0.0.1",
+    "version": "0.0.3",
     "publisher": "monovaldes",
     "engines": {
         "vscode": "^1.18.0"
@@ -11,51 +11,81 @@
         "Other"
     ],
     "activationEvents": [
-      "onLanguage:ruby",
-      "onLanguage:javascript",
-      "onLanguage:css",
-      "onLanguage:java",
-      "onLanguage:php"
+        "onLanguage:ruby",
+        "onLanguage:javascript",
+        "onLanguage:css",
+        "onLanguage:java",
+        "onLanguage:php"
     ],
     "main": "./out/extension",
     "contributes": {
-      "languages": [
-        {
-          "id": "ruby",
-          "aliases": ["Ruby", "ruby"],
-          "extensions": [".rb",".erb"]
-        },
-        {
-          "id": "javascript",
-          "aliases": ["Javascript", "javascript"],
-          "extensions": [".js",".jsx"]
-        },
-        {
-          "id": "css",
-          "aliases": ["Sass", "sass", "Css", "css"],
-          "extensions": [".css",".scss"]
-        },
-        {
-          "id": "java",
-          "aliases": ["Java", "java"],
-          "extensions": [".java"]
-        },
-        {
-          "id": "php",
-          "aliases": ["PHP", "php"],
-          "extensions": [".php"]
+        "languages": [
+            {
+                "id": "ruby",
+                "aliases": [
+                    "Ruby",
+                    "ruby"
+                ],
+                "extensions": [
+                    ".rb",
+                    ".erb"
+                ]
+            },
+            {
+                "id": "javascript",
+                "aliases": [
+                    "Javascript",
+                    "javascript"
+                ],
+                "extensions": [
+                    ".js",
+                    ".jsx"
+                ]
+            },
+            {
+                "id": "css",
+                "aliases": [
+                    "Sass",
+                    "sass",
+                    "Css",
+                    "css"
+                ],
+                "extensions": [
+                    ".css",
+                    ".scss"
+                ]
+            },
+            {
+                "id": "java",
+                "aliases": [
+                    "Java",
+                    "java"
+                ],
+                "extensions": [
+                    ".java"
+                ]
+            },
+            {
+                "id": "php",
+                "aliases": [
+                    "PHP",
+                    "php"
+                ],
+                "extensions": [
+                    ".php"
+                ]
+            }
+        ],
+        "configuration": {
+            "type": "object",
+            "title": "Codeclimate Linter Config",
+            "properties": {
+                "linter_codeclimate.enabled": {
+                    "type": "boolean",
+                    "default": false
+                }
+            }
         }
-      ],
-      "configuration": {
-        "type": "object",
-        "title": "Codeclimate Linter Config",
-        "properties": {
-          "linter_codeclimate.enabled": {
-            "type": "boolean",
-            "default": false
-          }
-        }
-      }
     },
     "scripts": {
         "vscode:prepublish": "npm run compile",
