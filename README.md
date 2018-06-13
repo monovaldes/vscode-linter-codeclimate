@@ -22,4 +22,9 @@ To enable it do so in workspace settings:
 
 Initial release!
 
+### 0.0.7
+
+- Async calls to the codeclimate containers
+- Avoid multiple scans over the same file
+
 -----------------------------------------------------------------------------------------------------------
