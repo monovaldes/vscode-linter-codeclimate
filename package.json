@@ -20,7 +20,8 @@
         "onLanguage:javascript",
         "onLanguage:css",
         "onLanguage:java",
-        "onLanguage:php"
+        "onLanguage:php",
+        "onLanguage:typescript"
     ],
     "main": "./out/extension",
     "contributes": {
@@ -78,6 +79,17 @@
                 ],
                 "extensions": [
                     ".php"
+                ]
+            },
+            {
+                "id": "typescript",
+                "aliases": [
+                    "TypeScript",
+                    "typescript"
+                ],
+                "extensions": [
+                    ".ts",
+                    ".tsx"
                 ]
             }
         ],
