@@ -5,7 +5,7 @@
     "version": "0.0.9",
     "publisher": "monovaldes",
     "engines": {
-        "vscode": "^1.18.0"
+        "vscode": "^1.31.0"
     },
     "repository": {
         "type": "git",
@@ -115,6 +115,6 @@
         "@types/mocha": "^2.2.42",
         "@types/node": "^7.0.43",
         "typescript": "^2.8.3",
-        "vscode": "^1.1.18"
+        "vscode": "^1.1.29"
     }
 }
