@@ -15,3 +15,7 @@
 
 ## 0.0.10
 - updated because of security reasons
+
+### 0.1.0
+
+- included vscode-container support, kudos to @AngellusMortis
