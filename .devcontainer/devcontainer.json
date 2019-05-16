@@ -1,0 +1,16 @@
+// See https://aka.ms/vscode-remote/containers for the
+// documentation about the devcontainer.json format
+{
+    "name": "Node.js (latest LTS) & TypeScript",
+    "dockerFile": "Dockerfile",
+    "extensions": [
+        "ms-vscode.vscode-typescript-tslint-plugin"
+    ],
+    "runArgs": [
+        "-v",
+        "/var/run/docker.sock:/var/run/docker.sock",
+        "--env-file",
+        ".env"
+    ],
+    "postCreateCommand": "echo \"Installing Code Climate Linter...\" && cd /tmp && curl -L https://github.com/codeclimate/codeclimate/archive/master.tar.gz | tar xz 2>&1 >/dev/null && cd codeclimate-master && make install 2>&1 >/dev/null && codeclimate engines:install 2>&1 >/dev/null"
+}
